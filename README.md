@@ -10,6 +10,7 @@ A simple payment engine implementation in Rust that accepts an input transaction
 - If a deposit references a non-existing client it will be created beforehand.
 - Amount is less than `u64::MAX / 10000`
 - Clients with a zero-balance are still required to be exported
+- `dispute`, `resolve`, `chargeback` are passed as `xxxx, 2, 8,`
 
 ## Focus
 **Don't Panic**  
