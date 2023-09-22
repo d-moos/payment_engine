@@ -95,6 +95,7 @@ impl BookedDeposit {
         self.amount
     }
 
+    #[allow(dead_code)]
     pub fn state(&self) -> &State {
         &self.state
     }
