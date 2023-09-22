@@ -23,7 +23,7 @@ If any part of the transaction fails, no state will be updated.
 Input files are processed as a stream so that the execution starts immediately.  
 This allows for a (future) feature that could resume a previously processed file (e.g. if the process is killed).
 
-## Remarks
+## Input Parsing
 While the input provides the amounts as a fixed point number the engine uses `u64` internally where the input is multiplied by `10000`.  
 This is to ensure we will never have any issues with decimal places (even though this would not be the case here with only additions and subtractions).
 Because of that, the amount is maxed at `u64::MAX / 10000`.
@@ -39,3 +39,7 @@ Of course, sometimes it doesn't make sense to have a thread per clientId (as its
 - `input.csv` an example CSV
 - `output.csv` output generated for `input.csv`
 - `large_input.zip` a zipped input csv with 10_000_000 rows
+
+## Logging
+I've added the `env_logger` crate to output possible parsing or execution warnings.  
+They are disabled by default but can be enabled by passing the `RUST_LOG` env var.
